@@ -1,0 +1,17 @@
+FROM golang:1.9
+
+WORKDIR /go/src/github.com/dapperdox/dapperdox
+
+COPY . .
+
+RUN go-wrapper download   # "go get -d -v ./..."
+RUN go-wrapper install    # "go install -v ./..."
+
+ENV DOC_ROOT /qover
+ENV SPEC_DIR $DOC_ROOT/specs
+ENV SPEC_FILENAME motor/swagger.json,lifestyle/swagger.json
+ENV ASSETS_DIR $DOC_ROOT/assets
+ENV BIND_ADDR 0.0.0.0:3123
+EXPOSE 3123
+
+CMD ["go-wrapper", "run"]
