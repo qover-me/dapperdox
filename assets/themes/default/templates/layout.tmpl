@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    [: template "fragments/meta" . :]
 
     <meta name="description" content="">
     <meta name="author" content="">
@@ -34,7 +35,7 @@
     <script src='/js/highlight.pack.js'   type='text/javascript'></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
-    <title>[: .Info.Title :]: [: .Title :]</title>
+    [: template "fragments/title" . :]
   </head>
 
 <body [: if .Config.ShowAssets :][: if not .Guide :] class="debug_body" [: end :] [: end :]>
